@@ -1,0 +1,775 @@
+{
+	"info": {
+		"_postman_id": "c132b057-89f6-4b87-8766-bdccd50abf78",
+		"name": "Quickest Notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25456599"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"edgar\",\r\n    \"password\": \"olademar\",\r\n    \"email\": \"ggez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"edgar\",\r\n    \"password\": \"olademar\",\r\n    \"email\": \"ggez\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "server",
+									"value": "Rocket"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "permissions-policy",
+									"value": "interest-cohort=()"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "content-length",
+									"value": "297"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 13 May 2024 19:25:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 422,\n    \"message\": \"Unprocessable Entity. The request was well-formed but was unable to be followed due to semantic errors.\",\n    \"errors\": {\n        \"email\": [\n            {\n                \"code\": \"email\",\n                \"message\": null,\n                \"params\": {\n                    \"value\": \"ggez\"\n                }\n            }\n        ],\n        \"username\": [\n            {\n                \"code\": \"length\",\n                \"message\": null,\n                \"params\": {\n                    \"min\": 7,\n                    \"max\": 50,\n                    \"value\": \"edgar\"\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifier\": \"olademar\",\r\n    \"password\": \"olademar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"identifier\": \"olademar\",\r\n    \"password\": \"olademar\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "server",
+									"value": "Rocket"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "permissions-policy",
+									"value": "interest-cohort=()"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "content-length",
+									"value": "237"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 13 May 2024 19:25:12 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWJqZWN0X2lkIjoiY2MxM2UxZDItM2EyZC00OWI4LWI0YjktM2Q2NDQ3YmYzM2EzIiwiZXhwIjoxNzE1NjcxNTEzfQ.J5w2OrCfSgkfXSBirovNsfvBzbA5Q4nbDh-UlogUNaW2Y2NP7ZXsA5EUsK8gFlR9lgA5NCnqgNgU0w2DfoB6Wg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Me",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/auth/me",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "server",
+									"value": "Rocket"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "permissions-policy",
+									"value": "interest-cohort=()"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "content-length",
+									"value": "140"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 13 May 2024 19:25:58 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"usr_id\": \"cc13e1d2-3a2d-49b8-b4b9-3d6447bf33a3\",\n    \"usr_name\": \"olademar\",\n    \"usr_email\": \"olademar\",\n    \"usr_created_at\": \"2024-05-12T22:59:03.453800\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "Get Notes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categories\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/notes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Notes",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categories\": [\"9704641d-9bb4-4f4f-92cc-7f1ce6d7a1ae\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/notes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"notes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "server",
+									"value": "Rocket"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "permissions-policy",
+									"value": "interest-cohort=()"
+								},
+								{
+									"key": "content-length",
+									"value": "494"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 13 May 2024 19:22:56 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"note_id\": \"61cd31d2-6f4b-4918-a5bd-279c769af38a\",\n        \"note_name\": \"This is my note\",\n        \"note_content\": \"My note content\",\n        \"note_content_type\": \"Plaintext\",\n        \"note_archived\": false,\n        \"note_created_at\": \"2024-05-13T19:20:59.951985\",\n        \"note_updated_at\": \"2024-05-13T19:20:59.951988\",\n        \"note_color\": \"#000000\",\n        \"usr_id\": \"cc13e1d2-3a2d-49b8-b4b9-3d6447bf33a3\",\n        \"categories\": [\n            {\n                \"cat_id\": \"9704641d-9bb4-4f4f-92cc-7f1ce6d7a1ae\",\n                \"cat_name\": \"ola de mar\",\n                \"cat_color\": \"#25a665\",\n                \"user_id\": \"cc13e1d2-3a2d-49b8-b4b9-3d6447bf33a3\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"note_name\": \"This is my note\",\r\n    \"note_content\": \"My note content\",\r\n    \"note_content_type\": \"Plaintext\",\r\n    \"note_archived\": false,\r\n    \"note_color\": \"#000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/notes/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"notes",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Note",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"note_name\": \"This is my note\",\r\n    \"note_content\": \"My note content\",\r\n    \"note_content_type\": \"Plaintext\",\r\n    \"note_archived\": false,\r\n    \"note_color\": \"#000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/notes/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"notes",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "server",
+									"value": "Rocket"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "permissions-policy",
+									"value": "interest-cohort=()"
+								},
+								{
+									"key": "content-length",
+									"value": "332"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 13 May 2024 19:20:59 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"note_id\": \"61cd31d2-6f4b-4918-a5bd-279c769af38a\",\n    \"note_name\": \"This is my note\",\n    \"note_content\": \"My note content\",\n    \"note_content_type\": \"Plaintext\",\n    \"note_archived\": false,\n    \"note_created_at\": \"2024-05-13T19:20:59.951985\",\n    \"note_updated_at\": \"2024-05-13T19:20:59.951988\",\n    \"note_color\": \"#000000\",\n    \"usr_id\": \"cc13e1d2-3a2d-49b8-b4b9-3d6447bf33a3\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Note To Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/notes/61cd31d2-6f4b-4918-a5bd-279c769af38a/category/9704641d-9bb4-4f4f-92cc-7f1ce6d7a1ae",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"notes",
+								"61cd31d2-6f4b-4918-a5bd-279c769af38a",
+								"category",
+								"9704641d-9bb4-4f4f-92cc-7f1ce6d7a1ae"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Note To Category",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/notes/61cd31d2-6f4b-4918-a5bd-279c769af38a/category/9704641d-9bb4-4f4f-92cc-7f1ce6d7a1ae",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"notes",
+										"61cd31d2-6f4b-4918-a5bd-279c769af38a",
+										"category",
+										"9704641d-9bb4-4f4f-92cc-7f1ce6d7a1ae"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "server",
+									"value": "Rocket"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "permissions-policy",
+									"value": "interest-cohort=()"
+								},
+								{
+									"key": "content-length",
+									"value": "155"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 13 May 2024 19:22:30 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"note_has_cat_id\": \"1b2cc736-fb52-431c-b47d-1a4ab149cdab\",\n    \"note_id\": \"61cd31d2-6f4b-4918-a5bd-279c769af38a\",\n    \"cat_id\": \"9704641d-9bb4-4f4f-92cc-7f1ce6d7a1ae\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cat_name\" : \"category\",\r\n    \"cat_color\": \"#FAFAFA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cat_name\" : \"category\",\r\n    \"cat_color\": \"#FAFAFA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "server",
+									"value": "Rocket"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "permissions-policy",
+									"value": "interest-cohort=()"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "content-length",
+									"value": "142"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 13 May 2024 19:16:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cat_id\": \"04a4158e-0cd3-4059-945a-154bad96111d\",\n    \"cat_name\": \"category\",\n    \"cat_color\": \"#FAFAFA\",\n    \"user_id\": \"cc13e1d2-3a2d-49b8-b4b9-3d6447bf33a3\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "server",
+									"value": "Rocket"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "permissions-policy",
+									"value": "interest-cohort=()"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "content-length",
+									"value": "289"
+								},
+								{
+									"key": "date",
+									"value": "Mon, 13 May 2024 19:16:59 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"cat_id\": \"9704641d-9bb4-4f4f-92cc-7f1ce6d7a1ae\",\n        \"cat_name\": \"ola de mar\",\n        \"cat_color\": \"#25a665\",\n        \"user_id\": \"cc13e1d2-3a2d-49b8-b4b9-3d6447bf33a3\"\n    },\n    {\n        \"cat_id\": \"04a4158e-0cd3-4059-945a-154bad96111d\",\n        \"cat_name\": \"category\",\n        \"cat_color\": \"#FAFAFA\",\n        \"user_id\": \"cc13e1d2-3a2d-49b8-b4b9-3d6447bf33a3\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
