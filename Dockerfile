@@ -10,4 +10,4 @@ RUN apt-get update && apt-get install -y libpq-dev && apt clean && rm -rf /var/l
 COPY --from=builder /app/target/release/quickest-notes /
 
 CMD ["/quickest-notes"]
-EXPOSE 8080
+EXPOSE 8000

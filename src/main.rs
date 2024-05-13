@@ -15,6 +15,12 @@ mod validators;
 #[macro_use]
 extern crate rocket;
 
+// Health check route
+#[get("/")]
+async fn index() -> &'static str {
+    "Ok"
+}
+
 #[rocket::main]
 async fn main() {
     // Cors middleware to allow cross-origin requests
@@ -41,5 +47,8 @@ async fn main() {
     let rocket_instance = auth_controller::mount(rocket_instance);
     let rocket_instance = error_catcher::register(rocket_instance);
     let rocket_instance = rocket_instance.manage(db::create_connection());
+
+    // Health check route
+    let rocket_instance = rocket_instance.mount("/", routes![index]);
     rocket_instance.launch().await.ok();
 }
