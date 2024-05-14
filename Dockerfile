@@ -4,7 +4,7 @@ WORKDIR /app/
 COPY . .
 RUN cargo build --release --bin quickest-notes
 RUN cargo install diesel_cli --no-default-features --features postgres
-COPY /app/target/release/quickest-notes /usr/local/bin
+COPY /target/release/quickest-notes /usr/local/bin
 ENV RUST_BACKTRACE=1
 EXPOSE 8000
 CMD /bin/sh -c "diesel migration run && quickest-notes"
