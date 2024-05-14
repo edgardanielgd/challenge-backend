@@ -5,7 +5,7 @@ COPY . .
 RUN cargo build --release --bin quickest-notes
 
 # Run app
-FROM debian:buster-slim AS runtime
+FROM debian:bullseye AS runtime
 
 COPY --from=builder /app/target/release/quickest-notes /usr/local/bin
 RUN apt-get update && apt-get install -y libpq5 && rm -rf /var/lib/apt/lists/*
