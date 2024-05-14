@@ -3,14 +3,8 @@ FROM rust:1.78 AS builder
 WORKDIR /app/
 COPY . .
 RUN cargo build --release --bin quickest-notes
-
-# Run app
-FROM ubuntu:20.04 AS runtime
-
-COPY --from=builder /app/target/release/quickest-notes /usr/local/bin
-RUN apt-get update && apt-get install -y libpq5 && rm -rf /var/lib/apt/lists/*
-
+RUN cargo install diesel_cli --no-default-features --features postgres
+COPY /app/target/release/quickest-notes /usr/local/bin
 ENV RUST_BACKTRACE=1
 EXPOSE 8000
-
-ENTRYPOINT [ "/usr/local/bin/quickest-notes" ]
+CMD /bin/sh -c "diesel migration run && quickest-notes"
