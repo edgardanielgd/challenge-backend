@@ -25,7 +25,7 @@ cargo build
 To start the backend service, run the following command:
 
 ```bash
-npm start
+cargo run
 ```
 
 ## Installation (Docker)
