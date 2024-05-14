@@ -2,12 +2,15 @@
 FROM rust:1.78 AS builder
 WORKDIR /app/
 COPY . .
-RUN cargo build --release
+RUN cargo build --release --bin quickest_notes
 
 # Run app
-FROM ubuntu:22.04 AS executor
-RUN apt-get update && apt-get install -y libpq-dev && apt clean && rm -rf /var/lib/apt/lists/*
-COPY --from=builder /app/target/release/quickest-notes /
+FROM debian:buster-slim AS runtime
 
-CMD ["/quickest-notes"]
+COPY --from=builder /app/target/release/quickest_notes /usr/local/bin
+RUN apt-get update && apt-get install -y libpq5 && rm -rf /var/lib/apt/lists/*
+
+ENV RUST_BACKTRACE=1
 EXPOSE 8000
+
+ENTRYPOINT [ "/usr/local/bin/quickest_notes" ]
