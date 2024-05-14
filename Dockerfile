@@ -5,4 +5,4 @@ COPY . .
 RUN cargo install diesel_cli --no-default-features --features postgres
 ENV RUST_BACKTRACE=1
 EXPOSE 8000
-CMD /bin/sh -c "diesel migration run && cargo run --release"
+CMD /bin/sh -c "diesel migration run && cargo run"
