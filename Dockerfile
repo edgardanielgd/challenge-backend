@@ -1,5 +1,5 @@
 # Build app and run migrations
-FROM rust AS builder
+FROM rust:1.49 AS builder
 WORKDIR /app/
 COPY . .
 RUN cargo build --release
